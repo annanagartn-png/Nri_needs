@@ -1,0 +1,501 @@
+
+    <style>
+    #nav {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #nav {
+            background-color: #f5f5f5;
+        }
+
+        /* Top Contact Bar */
+        .top-bar {
+            width: 100%;
+            background: #049ad0e9;;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            padding: 10px 0;
+        }
+
+        .top-bar .container {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-bar a {
+            color: #013670;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .top-bar a {
+            color: #e5e1df;
+        }
+
+        .top-bar .phone-btn {
+            background: #ff6a00;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .top-bar .phone-btn:hover {
+            transform: translateY(-2px);
+            color: #ffffff95;
+               background: #dc5e03e8;
+            /* box-shadow: 0 6px 16px rgba(255,96,41,0.45); */
+        }
+
+        /* Navbar */
+        header {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            transition: background 0.4s, box-shadow 0.4s;
+        }
+
+        header.solid {
+            background: #f0eded;; /* solid blue */
+             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+     transition: background 0.4s, box-shadow 0.4s;
+        }
+
+        header.transparent {
+           background: #f0eded; /* solid black */
+     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+     transition: background 0.4s, box-shadow 0.4s;
+        }
+
+        header .container {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        header .logo img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        header nav {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            height: 100%;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: rgb(227, 118, 9);
+            font-size: 17px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            /* border-right: 1px solid rgba(255,255,255,0.3); */
+        }
+
+        header nav a:hover {
+            color: #ff6b35;
+        }
+
+        header nav .cta-btn {
+            padding: 8px 18px;
+            /* border: 2px solid #ff6b35; */
+            /* color: #ff6b35; */
+            text-decoration: none;
+            font-weight: 600;
+            /* border-radius: 30px; */
+            transition: 0.3s;
+        }
+
+        header nav .cta-btn:hover {
+            background: #ff6b35;
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-icon {
+            display: none;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #mobileMenu {
+            display: none;
+            flex-direction: column;
+            background: #702d01;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+            }
+            .mobile-menu-icon {
+                display: block;
+            }
+        }
+    </style>
+
+
+    <!-- Top Contact Bar -->
+    <div id="nav" class="top-bar">
+        <div class="container">
+            <b style="color:#f0eeeb; opacity:0.9; ">🌐 Trusted NRI Services – Tamil Nadu • India</b>
+            <div style="display:flex; gap:28px; align-items:center;">
+                <div>✉️ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=macinformationsystems05@gmail.com">macinformationsystems05@gmail.com</a></div>
+                <b style="color: rgb(242, 238, 238);">📍 Chennai, India</b>
+              <style>
+    .contact-box {
+        position: relative;
+        display: inline-block;
+        z-index: 9999; /* Keep dropdown above navbar */
+    }
+
+    .main-btn {
+        padding: 12px 20px;
+        background: #ff7700;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        border: none;
+    }
+
+    .options-box {
+        display: none;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        width: 150px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 9999; /* Bring forward */
+    }
+
+    .options-box a {
+        display: block;
+        padding: 8px;
+        text-decoration: none;
+        color: black;
+        border-radius: 6px;
+    }
+
+    .options-box a:hover {
+        background: #e8f0fe;
+    }
+</style>
+
+<div class="contact-box">
+    <button class="main-btn" style=" color: black;  background-color: rgb(243, 241, 241);" onclick="toggleOptions()"><b>📞 Contact Us</b></button>
+
+    <div id="options" class="options-box">
+        <a href="tel:+917845839740">📞 Call</a>
+        <a href="https://wa.me/917845839740" target="_blank">💬 WhatsApp</a>
+    </div>
+</div>
+
+<script>
+    function toggleOptions() {
+        let box = document.getElementById("options");
+
+        box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+</script>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+     <header class="solid">
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'images/BANNER.png' %}" alt="NRI Needs Logo">
+            </div>
+            <nav>
+                <a href="{% url 'home' %}" style="min-width:130px;  color:white; font-weight:600; transform:scale(1.05);" 
+                onmouseover=" this.style.color='#013670'; this.style.transform='scale(1.1) translateY(-5px)'; " 
+                onmouseout="this.style.color='white'; this.style.transform='scale(1.05)'; ">Home</a>
+                <a href="{% url 'about' %}" style="min-width:120px;  color:white;" 
+                onmouseover=" this.style.color='#013670'; this.style.transform='translateY(-5px) scale(1.05)'; " 
+                onmouseout=" this.style.color='white'; this.style.transform='translateY(0) scale(1)'; ">About Us</a>
+                <a href="{% url 'service' %}" style="min-width:120px;  color:white;" 
+                onmouseover=" this.style.color='#013670'; this.style.transform='translateY(-5px) scale(1.05)';" 
+                onmouseout=" this.style.color='white'; this.style.transform='translateY(0) scale(1)';">Services</a>
+                <a href="{% url 'contact' %}" style="min-width:120px;  color:white;" 
+                onmouseover=" this.style.color='#013670'; this.style.transform='translateY(-5px) scale(1.05)'; " 
+                onmouseout=" this.style.color='white'; this.style.transform='translateY(0) scale(1)';">Contact</a>
+            <a href="{% url 'form' %}" class="cta-btn" style="border-radius: 13px; background-color: blue;">✨ Request Service</a>
+
+<style>
+/* CTA Button Styling */
+header nav .cta-btn {
+    padding: 8px 8px;               /* larger padding for better height & width */
+    min-width: 160px;                  /* ensures button width consistency */
+    border-radius: 35px;               /* smooth pill shape */
+    background: #f0f1f3;               /* bright orange background */
+    color: rgb(0, 0, 0);                      /* text color */
+    font-weight: 700;                  /* slightly bolder */
+    font-size: 17px;                   /* slightly larger text */
+    text-align: center;                /* center text */
+    text-decoration: none;             /* remove underline */
+    display: inline-flex;              /* aligns content vertically */
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin-left: 30px;
+    transition: all 0.3s ease-in-out;  /* smooth hover transition */
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Text color when navbar is transparent after scroll */
+header.transparent nav a {
+    color: rgb(241, 138, 4) !important;
+    /* border-right-color: rgba(0,0,0,0.3) !important; */
+}
+
+/* Text color when navbar is solid (at top) */
+header.solid nav a {
+    color: rgb(233, 121, 9) !important;
+    border-right-color: rgba(245, 241, 241, 0.3) !important;
+}
+
+/* CTA button color fix on scroll */
+header.transparent nav .cta-btn {
+    background: rgb(244, 242, 242) !important;
+    color: #013670 !important;
+}
+
+header.solid nav .cta-btn {
+    background: #ff7700 !important;
+    font-size: 15px;
+    color: rgb(253, 249, 249) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Hover Effect */
+header nav .cta-btn:hover {
+    background: white;                 /* hover background */
+    color: #013670;                    /* hover text color */
+    transform: translateY(-4px) scale(1.08); /* pop effect */
+    box-shadow: 0 10px 25px rgba(255,107,53,0.45); /* stronger shadow */
+}
+
+/* Responsive: slightly smaller on mobile */
+@media (max-width: 768px) {
+    header nav .cta-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        min-width: 140px;
+    }
+}
+</style>
+
+
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        const navbar = document.querySelector('header');
+        function checkScroll() {
+            if(window.scrollY === 0){
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        }
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
+
+    <div style="padding: 2rem;">
+      
+    </div>
+
+
+    
+<!-- ===================== PREMIUM CORPORATE FOOTER ===================== -->
+   
+<footer class="wndfal-footer reveal-footer" style="background-color:#090a00cc;color:#fff;font-family:Arial,sans-serif;font-size:14px;padding:50px 20px 20px;">
+
+  <!-- Footer Widgets -->
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;">
+
+    <!-- Widget 1: Logo & About -->
+    <div style="flex:1 1 40%;min-width:250px;margin-bottom:30px;">
+      <div>
+        <div style="margin-bottom:15px;">
+          <img src="{% static 'images/BANNER.png' %}" alt="NRI Logo" style="width:300px;height:60px;">
+        </div>
+        <p style="line-height:1.6;margin-bottom:15px;">Our goal is to support the NRI community by understanding their unique needs and serving them with care, integrity, and trust.</p>
+        <div>
+          <span style="display:block;margin-bottom:5px;">4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040</span>
+          <span style="display:block;margin-bottom:5px;">Mail: <a href="mailto:macinformationsystems05@gmail.com" style="color:#fff;text-decoration:none;">macinformationsystems05@gmail.com</a></span>
+          <span style="display:block;margin-bottom:5px;">Call: <a href="https://wa.me/917845839740" style="color:#fff;text-decoration:none;">+91 78458 39740</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widget 2: Explore -->
+    <div style="flex:1 1 18%;min-width:150px;margin-bottom:30px;">
+      <h4 style="color:#ffcc00;font-size:18px;margin-bottom:10px;">Explore</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">About Us</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Gallery</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Offers</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Pricing</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Testimonial</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Widget 3: Quick Links -->
+    <div style="flex:1 1 18%;min-width:150px;margin-bottom:30px;">
+      <h4 style="color:#ffcc00;font-size:18px;margin-bottom:10px;">Quick Links</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Services</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Quotes</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Blog</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Contact Us</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Service Request</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Estimations</a></li>
+      </ul>
+    </div>
+
+    <!-- Widget 4: Subscribe & Social -->
+ 
+
+  </div>
+
+  <!-- Copyright -->
+  <div style="background:#000;padding:15px 20px;text-align:center;font-size:13px;margin-top:20px;">
+    © 2026 NRI. All rights reserved.
+  </div>
+</footer>
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Scroll Reveal JS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const footer = document.querySelector(".reveal-footer");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                footer.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+    observer.observe(footer);
+});
+</script>
+
+<!-- Scroll Reveal Inline CSS -->
+<style>
+.reveal-footer {opacity:0;transform:translateY(40px);transition:all 0.9s ease;}
+.reveal-footer.show {opacity:1;transform:translateY(0);}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

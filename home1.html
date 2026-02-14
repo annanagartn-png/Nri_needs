@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+
+<!-- Navbar will load here -->
+<div id="navbar"></div>
+
+<h1>Home Page</h1>
+<p>Welcome to the home page.</p>
+
+<script>
+fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

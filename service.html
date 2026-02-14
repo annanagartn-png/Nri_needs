@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff6600">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Services - NRI_Needs</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        html { scroll-behavior: smooth; }
+        
+        /* Navigation */
+        /* Navigation */
+      /* NAVBAR */
+nav { position: fixed; top: 0; width: 100%; background: #eae9eedf; z-index: 1000; backdrop-filter: blur(5px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; max-width: 1400px; margin: 0 auto; width: 100%; }
+.logo img { height: 50px; width: auto; }
+.menu { display: flex; gap: 15px; }
+.menu-link { text-decoration: none; color: #111; font-weight: 600; padding: 10px 18px; border-radius: 5px; transition: all 0.3s ease; }
+.menu-link:hover { background: #ff6600; color: #fff; }
+.menu-link { background: #ffffff; color: #060000; }
+
+/* HAMBURGER */
+#hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
+#hamburger span { width: 25px; height: 3px; background: #111; border-radius: 2px; transition: all 0.3s ease; }
+/* CROSS EFFECT */
+#hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+#hamburger.active span:nth-child(2) { opacity: 0; }
+#hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* MOBILE MENU */
+#mobileMenu { display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: #f5f5f5; transition: max-height 0.3s ease; position: absolute; top: 70px; left: 0; right: 0; width: 100%; padding: 0; }
+#mobileMenu.active { max-height: 500px; padding: 10px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+#mobileMenu a { color: #111; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #ddd; font-weight: 600; }
+
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, #ff6600 0%, #e55a00 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .header-section h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-section p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        /* Main Content */
+        main { margin-top: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        
+        h2 { font-size: 2.5em; margin-bottom: 50px; text-align: center; color: #333; position: relative; padding-bottom: 20px; }
+        h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(90deg, #ff6600, #e55a00); border-radius: 2px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 50px 0; }
+        .service-item { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; border-top: 4px solid #ff6600; }
+        .service-item:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .service-item h3 { color: #ff6600; margin-bottom: 15px; font-size: 1.3em; display: flex; align-items: center; gap: 10px; }
+        .service-item p { color: #666; margin-bottom: 20px; }
+        .service-item ul { margin-left: 20px; }
+        .service-item li { margin: 8px 0; color: #555; }
+        .book-btn { background: linear-gradient(135deg, #ff6600, #e55a00); color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .book-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(255,102,0,0.3); }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ff6600;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ff6600;
+            padding-left: 5px;
+        }
+        
+        .footer-contact-info p {
+            color: #ccc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact-info i {
+            color: #ff6600;
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+        
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .menu { display: none; }
+    #hamburger { display: flex; }
+    .hero { text-align: left; padding: 120px 20px 80px; }
+}
+        @media (max-width: 768px) {
+            .menu { display: none; }
+            #hamburger { display: flex; }
+            .section { padding: 50px 0; }
+            h2 { font-size: 1.8em; }
+            .header-section { padding: 60px 20px; margin-top: 80px; }
+            .header-section h1 { font-size: 2em; }
+            .header-section p { font-size: 1.1em; }
+            .header-icon { font-size: 2.5em; }
+            .services-grid { grid-template-columns: 1fr; gap: 20px; }
+            .footer-content { gap: 30px; }
+            .service-item h3 { font-size: 1.1em; }
+            .book-btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+       
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="./images/NRI_logo.png" alt="NRI Logo">
+    </div>
+    <div class="menu">
+      <a href="./index.html"  class="menu-link">Home</a>
+      <a href="./about.html"   class="menu-link">About</a>
+      <a href="./service.html"   class="menu-link">Services</a>
+      <!-- <a href="./contact.html" class="menu-link">Contact</a> -->
+             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview"  class="menu-link">Contact</a>
+
+    </div>
+    <div id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div id="mobileMenu">
+    <a href="./home.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./service.html">Services</a>
+         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" >Contact</a>
+
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+});
+</script>
+
+    <!-- Professional Header -->
+   <div class="header-section" style="
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1500&q=80') no-repeat center center / cover;
+    font-family: 'Poppins', sans-serif;
+">
+    <div class="header-content" style="padding: 0 20px;">
+        <h1 style="
+            font-size: 3rem;
+            margin-bottom: 15px;
+        ">Our Professional Services</h1>
+        <p style="
+            font-size: 1.25rem;
+        ">Comprehensive Solutions for All Your NRI Needs</p>
+    </div>
+</div>
+
+<!-- Responsive Text Sizes -->
+<style>
+    @media (max-width: 992px) { /* Tablet */
+        .header-section h1 {
+            font-size: 2.5rem !important;
+        }
+        .header-section p {
+            font-size: 1.1rem !important;
+        }
+    }
+    @media (max-width: 600px) { /* Mobile */
+        .header-section {
+            height: 50vh !important;
+        }
+        .header-section h1 {
+            font-size: 1.8rem !important;
+        }
+        .header-section p {
+            font-size: 1rem !important;
+        }
+    }
+</style>
+
+    
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2>Explore Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3><i class="fas fa-box"></i> Courier Service</h3>
+                        <p>Fast and reliable delivery solutions for documents and parcels</p>
+                        <ul>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Local delivery</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>National shipping</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>International courier</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Real-time tracking</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3><i class="fas fa-plane"></i> Travel & Tourism</h3>
+                        <p>Expert guidance for trips, visas, and bookings</p>
+                        <ul>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Trip planning</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Visa assistance</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Hotel bookings</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Travel insurance</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3><i class="fas fa-file-alt"></i> Document Service</h3>
+                        <p>Assistance in obtaining certificates and official documents</p>
+                        <ul>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Certificate processing</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Document verification</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Notarization services</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Legal documentation</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+                    </div>
+
+
+
+
+
+
+
+
+
+ <div class="service-item">
+    <h3><i class="fas fa-building"></i> Property Management</h3>
+    <p>Manage and oversee your properties efficiently</p>
+    <ul>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Tenant management</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Maintenance coordination</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Rental collection</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Legal compliance</li>
+    </ul>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+</div>
+<div class="service-item">
+    <h3><i class="fas fa-shopping-cart"></i> Tourism Guidance & Shopping</h3>
+    <p>Get local guidance and send items abroad</p>
+    <ul>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Tourism advice</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Buy items locally</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Send gifts abroad</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Custom assistance</li>
+    </ul>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+</div><div class="service-item">
+    <h3><i class="fas fa-car"></i> Pick-Up / Drop Services</h3>
+    <p>Convenient transportation for items and documents</p>
+    <ul>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Item pick-up</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Doorstep delivery</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Parcel handling</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Reliable scheduling</li>
+    </ul>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+</div><div class="service-item">
+    <h3><i class="fas fa-user-nurse"></i> Elder Care</h3>
+    <p>Assistance and support for senior citizens</p>
+    <ul>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Home assistance</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Medical support</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Daily care services</li>
+        <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Emergency support</li>
+    </ul>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    <div class="service-item">
+                        <h3><i class="fas fa-graduation-cap"></i> Education Service</h3>
+                        <p>Support for admissions and educational documentation</p>
+                        <ul>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Admission assistance</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Exam registration</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Document collection</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Scholarship guidance</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3><i class="fas fa-heartbeat"></i> Medical Service</h3>
+                        <p>Guidance for medical appointments and health records</p>
+                        <ul>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Medical appointments</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Insurance assistance</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Record management</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Health consultations</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    <div class="service-item">
+                        <h3><i class="fas fa-globe"></i> Other Services</h3>
+                        <p>Custom solutions for your unique NRI needs</p>
+                        <ul>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Legal assistance</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Property management</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Financial consultation</li>
+                            <li><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>And more!</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="book-btn">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Professional Footer -->
+    <footer class="wndfal-footer reveal-footer" style="background-color:#090a00;color:#fff;font-family:Arial,sans-serif;font-size:14px;padding:50px 20px 20px;">
+
+  <!-- Footer Widgets -->
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;">
+
+    <!-- Widget 1: Logo & About -->
+    <div style="flex:1 1 40%;min-width:250px;margin-bottom:30px;">
+      <div>
+        <div style="margin-bottom:15px;">
+          <img src="./images/NRI_logo.png" alt="NRI Logo" style="width:300px;height:60px;">
+        </div>
+        <p style="line-height:1.6;margin-bottom:15px;">Our goal is to support the NRI community by understanding their unique needs and serving them with care, integrity, and trust.</p>
+        <div>
+          <span style="display:block;margin-bottom:5px;">4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040</span>
+          <span style="display:block;margin-bottom:5px;">Mail: <a href="mailto:macinformationsystems05@gmail.com" style="color:#fff;text-decoration:none;">macinformationsystems05@gmail.com</a></span>
+          <span style="display:block;margin-bottom:5px;">Call: <a href="https://wa.me/917845839740" style="color:#fff;text-decoration:none;">+91 78458 39740</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widget 2: Explore -->
+    <div style="flex:1 1 18%;min-width:150px;margin-bottom:30px;">
+      <h4 style="color:#ff4000;font-size:18px;margin-bottom:10px;">Explore</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">About Us</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Gallery</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Offers</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Pricing</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Testimonial</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Widget 3: Quick Links -->
+    <div style="flex:1 1 18%;min-width:150px;margin-bottom:30px;">
+      <h4 style="color:#ff4000;font-size:18px;margin-bottom:10px;">Quick Links</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Services</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Quotes</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Blog</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Contact Us</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Service Request</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Estimations</a></li>
+      </ul>
+    </div>
+
+    <!-- Widget 4: Subscribe & Social -->
+    
+  </div>
+
+  <!-- Copyright -->
+  <div style="background:#090a00cc;padding:15px 20px;text-align:center;font-size:13px;margin-top:20px;">
+    © 2026 NRI. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

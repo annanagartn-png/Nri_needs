@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6c63ff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Home - NRI Needs</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        html { scroll-behavior: smooth; }
+        
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: #eae9eedf; z-index: 1000; backdrop-filter: blur(5px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; max-width: 1400px; margin: 0 auto; width: 100%; }
+        .logo img { height: 50px; width: auto; }
+        .menu { display: flex; gap: 15px; }
+        .menu-link { text-decoration: none; color: #111; font-weight: 600; padding: 10px 18px; background: transparent; border-radius: 5px; transition: all 0.3s ease; }
+        .menu-link:hover { background: #ff6600; color: #fff; }
+.menu-link { background: #ffffff; color: #060000; }
+       
+  
+/* NAVBAR */
+nav { position: fixed; top: 0; width: 100%; background: #eae9eedf; z-index: 1000; backdrop-filter: blur(5px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; max-width: 1400px; margin: 0 auto; width: 100%; }
+.logo img { height: 50px; width: auto; }
+.menu { display: flex; gap: 15px; }
+.menu-link { text-decoration: none; color: #111; font-weight: 600; padding: 10px 18px; border-radius: 5px; transition: all 0.3s ease; }
+.menu-link:hover { background: #ff6600; color: #fff; }
+.menu-link { background: #ffffff; color: #060000; }
+
+/* HAMBURGER */
+#hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
+#hamburger span { width: 25px; height: 3px; background: #111; border-radius: 2px; transition: all 0.3s ease; }
+/* CROSS EFFECT */
+#hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+#hamburger.active span:nth-child(2) { opacity: 0; }
+#hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* MOBILE MENU */
+#mobileMenu { display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: #f5f5f5; transition: max-height 0.3s ease; position: absolute; top: 70px; left: 0; right: 0; width: 100%; padding: 0; }
+#mobileMenu.active { max-height: 500px; padding: 10px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+#mobileMenu a { color: #111; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #ddd; font-weight: 600; }
+   /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6c63ff 0%, #42a5f5 100%);
+            padding: 180px 30px 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+        /* RESPONSIVE */
+@media (max-width: 768px) {
+    .menu { display: none; }
+    #hamburger { display: flex; }
+    .hero { text-align: left; padding: 120px 20px 80px; }
+}
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: clamp(1.5em, 5vw, 3.2em);
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: clamp(1em, 3vw, 1.4em);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn { 
+            background: white; 
+            color: #6c63ff; 
+            padding: 14px 35px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: inline-block; 
+            transition: all 0.3s ease; 
+            border: none; 
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .cta-btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #6c63ff;
+        }
+        
+        /* Main Content */
+        main { margin-top: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        .section { padding: 80px 0; }
+        
+        h2 { font-size: clamp(1.5em, 4vw, 2.5em); margin-bottom: 50px; text-align: center; color: #333; position: relative; padding-bottom: 20px; }
+        h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(90deg, #6c63ff, #42a5f5); border-radius: 2px; }
+        
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0; }
+        .feature-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; border-top: 4px solid #6c63ff; text-align: center; }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .feature-icon { font-size: 3em; color: #6c63ff; margin-bottom: 15px; }
+        .feature-card h3 { color: #333; margin-bottom: 15px; font-size: clamp(1.1em, 2.5vw, 1.3em); }
+        .feature-card p { color: #666; }
+        
+        /* Services Section */
+        .services-section { background: #f0f4ff; }
+        .service-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 50px 0; }
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+        .service-image { width: 100%; height: 180px; object-fit: cover; display: block; }
+        .service-info { padding: 25px; text-align: center; }
+        .service-info h3 { font-size: clamp(1em, 2vw, 1.2em); color: #333; margin-bottom: 10px; text-align: center; }
+        .service-info p { color: #666; font-size: 0.95em; line-height: 1.5; text-align: center; }
+        
+        .view-all-btn {
+            display: block;
+            background: linear-gradient(135deg, #6c63ff, #42a5f5);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 30px auto 0;
+            width: fit-content;
+            transition: all 0.3s ease;
+        }
+        .view-all-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(108,99,255,0.3); }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #6c63ff;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        
+        .footer-logo { height: 60px; width: auto; margin-bottom: 20px; }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #6c63ff;
+            padding-left: 5px;
+        }
+        
+        .footer-contact-info p {
+            color: #ccc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact-info i {
+            color: #6c63ff;
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            
+            /* Hero Section - Left align on mobile */
+            .hero { padding: 120px 20px 80px; margin-top: 70px; text-align: left; }
+            .hero-content { max-width: 100%; margin: 0; }
+            .hero h1 { text-align: left; }
+            .hero p { text-align: left; }
+            .cta-buttons { justify-content: flex-start; }
+            
+            .features-grid { grid-template-columns: 1fr; gap: 20px; }
+            .service-card-grid { grid-template-columns: 1fr; }
+            .footer-content { gap: 30px; }
+            .container { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="./images/NRI_logo.png" alt="NRI Logo">
+    </div>
+    <div class="menu">
+      <a href="./index.html" class="menu-link">Home</a>
+      <a href="./about.html" class="menu-link">About</a>
+      <a href="./service.html" class="menu-link">Services</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="menu-link">Contact</a>
+
+    </div>
+    <div id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div id="mobileMenu">
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./service.html">Services</a>
+         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" >Contact</a>
+
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+});
+</script>
+
+    <!-- Hero Section -->
+   
+     <div class="swiper-slide" 
+    style="
+        position: relative; 
+        background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat; 
+        margin-top: 70px; 
+        min-height: 400px;
+    " 
+    data-swiper-autoplay="5000">
+
+    <!-- Caption Wrapper -->
+    <div class="caption-wrap" style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; min-height: 300px; padding: 20px;">
+        <div class="container" style="text-align: left; max-width: 900px; color: #fff;">
+            <h4 class="caption-subtitle animated" data-animation="fadeInUp" 
+                style="font-size: clamp(0.9em, 2.5vw, 1.4em); font-weight: 500; margin-bottom: 15px; letter-spacing: 1px;">
+                Delivering 24/7 Trusted NRI Assistance
+            </h4>
+
+            <h3 class="caption-title animated" data-animation="fadeInUp"
+                style="font-size: clamp(1.2em, 4vw, 2.6em); font-weight: 700; line-height: 1.4; margin-bottom: 25px;">
+                Exclusive NRI Support Across Tamil Nadu – Wherever You Are, We’re There For You
+            </h3>
+
+            <ul style="list-style: none; padding: 0; margin: 20px 0; font-size: clamp(0.9em, 2.5vw, 1.1em); line-height: 2;">
+                <li style="margin: 8px 0;">🏠 Property Management Services</li>
+                <li style="margin: 8px 0;">📜 Certificate & Document Assistance</li>
+                <li style="margin: 8px 0;">🏥 Medical & Health Support</li>
+                <li style="margin: 8px 0;">📦 Courier & Logistics Service</li>
+                <li style="margin: 8px 0;">✈️ Tourism & Travel Arrangements</li>
+                <li style="margin: 8px 0;">🛎️ Other Services</li>
+            </ul>
+
+           <!-- Buttons Container -->
+<div class="buttons-container" style="display: flex; align-items: center; gap: 20px; margin-top: 35px; flex-wrap: nowrap;">
+    <a href="./service.html" class="btn-one">
+        Our Services
+    </a>
+
+    <div class="quote-box">
+        <a href="javascript:void(0)" onclick="toggleQuoteOptions()" class="btn-two">
+            Get A Quote
+        </a>
+
+        <div id="quote-options" class="quote-options">
+            <a href="tel:+911234567890">📞 Call Us</a>
+            <a href="https://wa.me/911234567890" target="_blank">💬 WhatsApp Us</a>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+/* Common button styles */
+.buttons-container a,
+.buttons-container .quote-box a {
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Button colors */
+.btn-one { background: #007bff; color: #fff; }
+.btn-two { background: transparent; border: 2px solid #fff; color: #fff; }
+
+/* Quote dropdown */
+.quote-options {
+    display: none;
+    position: absolute;
+    bottom: 55px;
+    left: 0;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 0;
+    width: 180px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    z-index: 9999;
+}
+.quote-options a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+
+/* Flexbox alignment */
+.buttons-container { display: flex; align-items: center; gap: 20px; flex-wrap: nowrap; }
+.quote-box { position: relative; display: flex; align-items: center; }
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .buttons-container a,
+    .buttons-container .quote-box a {
+        padding: 8px 18px;       /* smaller padding */
+        font-size: 0.9rem;       /* smaller text */
+    }
+
+    .buttons-container { gap: 12px; flex-wrap: wrap; } /* allow wrapping if too tight */
+}
+</style>
+
+<script>
+function toggleQuoteOptions() {
+    const box = document.getElementById("quote-options");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleQuoteOptions() {
+    let box = document.getElementById("quote-options");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+
+<!-- Responsive text for mobile -->
+<style>
+@media (max-width: 992px) { /* Tablet */
+    .caption-wrap h4 { font-size: clamp(0.8em, 3vw, 1.2em) !important; }
+    .caption-wrap h3 { font-size: clamp(1em, 5vw, 2.2em) !important; }
+    .caption-wrap ul { font-size: clamp(0.8em, 2.5vw, 1em) !important; }
+}
+@media (max-width: 600px) { /* Mobile */
+    .caption-wrap { padding: 15px !important; }
+    .caption-wrap h4 { font-size: 0.9em !important; }
+    .caption-wrap h3 { font-size: 1.5em !important; }
+    .caption-wrap ul { font-size: 0.9em !important; line-height:1.8 !important; }
+}
+</style>
+
+
+
+   
+   
+
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        html { scroll-behavior: smooth; }
+        
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: #eae9eedf; z-index: 1000; backdrop-filter: blur(5px); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .logo img { height: 55px; width: auto; }
+        .menu { display: flex; gap: 15px; }
+        .menu-link { text-decoration: none; color: #111; font-weight: 700; padding: 10px 20px; background: #fff; border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.15); transition: all 0.3s ease; }
+        .menu-link:hover { background: #6c63ff; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(108,99,255,0.3); }
+        #hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+        #hamburger span { width: 28px; height: 3px; background: #111; border-radius: 2px; transition: all 0.3s ease; }
+        /* #hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); } */
+        /* #hamburger.active span:nth-child(2) { opacity: 0; } */
+        /* #hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -15px); } */
+        #mobileMenu { display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: #f5f5f5; transition: max-height 0.3s ease; position: absolute; top: 75px; left: 0; right: 0; width: 100%; padding: 0; z-index: 999; }
+        #mobileMenu.active { max-height: 500px; padding: 10px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        #mobileMenu a { color: #111; text-decoration: none; padding: 10px 0; border-bottom: 1px solid #ddd; font-weight: 600; }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6c63ff 0%, #42a5f5 100%);
+            padding: 150px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-btn { 
+            background: white; 
+            color: #6c63ff; 
+            padding: 15px 40px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: inline-block; 
+            margin: 10px; 
+            transition: all 0.3s ease; 
+            border: none; 
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .cta-btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+        }
+        
+        /* Main Content */
+        main { margin-top: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        
+        h2 { font-size: clamp(1.5em, 4vw, 2.5em); margin-bottom: 50px; text-align: center; color: #333; position: relative; padding-bottom: 20px; }
+        h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(90deg, #6c63ff, #42a5f5); border-radius: 2px; }
+        
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 50px 0; }
+        .feature-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; border-top: 4px solid #6c63ff; text-align: center; }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .feature-icon { font-size: 3em; color: #6c63ff; margin-bottom: 15px; }
+        .feature-card h3 { color: #333; margin-bottom: 15px; font-size: clamp(1.1em, 2.5vw, 1.3em); }
+        .feature-card p { color: #666; }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #6c63ff;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #6c63ff;
+            padding-left: 5px;
+        }
+        
+        .footer-contact-info p {
+            color: #ccc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact-info i {
+            color: #6c63ff;
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            .menu { display: none; }
+            #hamburger { display: flex; }
+            .section { padding: 50px 0; }
+            h2 { font-size: 1.8em; }
+            .hero { padding: 80px 20px; margin-top: 80px; min-height: auto; }
+            .hero h1 { font-size: 2em; }
+            .hero p { font-size: 1.1em; margin-bottom: 20px; }
+            .cta-btn { padding: 12px 30px; font-size: 1em; width: 100%; margin: 10px 0; }
+            .features-grid { grid-template-columns: 1fr; gap: 20px; }
+            .footer-content { gap: 30px; }
+            .feature-card { padding: 30px; }
+        }
+    </style>
+
+ 
+ 
+
+
+
+
+
+
+
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #ffffff;
+}
+
+/* ===== FEATURES STRIP ===== */
+
+.features-wrapper {
+    width: 100%;
+}
+
+.features-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.feature-box {
+    background: #f97316;
+    color: white;
+    padding: 40px 35px;
+}
+
+.feature-box:nth-child(2) {
+    background: #ea580c;
+}
+
+.feature-title {
+    font-size: clamp(1rem, 2.5vw, 1.2em);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.feature-text {
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* ===== CONTENT ===== */
+
+.content-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.content-section h2 {
+    font-size: clamp(22px, 3vw, 32px);
+    margin-bottom: 15px;
+}
+
+.content-section p {
+    color: #555;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    margin-bottom: 35px;
+}
+
+/* ===== INFO GRID ===== */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 60px;
+}
+
+.info-item {
+    display: flex;
+    gap: 12px;
+}
+
+.info-icon {
+    font-size: clamp(1.2rem, 3vw, 1.3rem);
+    color: #f97316;
+    min-width: 26px;
+}
+
+.info-text h4 {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    margin-bottom: 4px;
+}
+
+.info-text p {
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== TABLET ===== */
+
+@media (max-width: 992px) {
+
+    .features-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-box:last-child {
+        grid-column: span 2;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== PERFECT MOBILE STACK ===== */
+
+@media (max-width: 600px) {
+
+    body {
+        background: #f1f5f9;
+    }
+
+    .features-wrapper {
+        padding: 12px;
+    }
+
+    .features-strip {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .feature-box {
+        width: 100%;
+        padding: 22px 18px;
+        border-radius: 12px;
+        text-align: left;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .content-section {
+        margin: 35px auto;
+        padding: 0 16px;
+    }
+
+    .content-section h2 {
+        font-size: clamp(1.3em, 5vw, 2.2em);
+        line-height: 1.4;
+    }
+}
+
+</style>
+
+<!-- ===== FEATURES STRIP ===== -->
+
+<div class="features-wrapper">
+<section class="features-strip">
+
+    <div class="feature-box">
+        <div class="feature-title">📍 Our Location</div>
+        <div class="feature-text">
+            We are proudly connected across every major city in Tamil Nadu,
+            delivering trusted NRI services right to your doorstep.
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="feature-title">🏅 Our Guarantee</div>
+        <div class="feature-text">
+            We promise dependable, top-quality service anchored in trust,
+            integrity, and excellence.
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="feature-title">🛟 Support</div>
+        <div class="feature-text">
+            Reliable assistance available whenever you need help with
+            our NRI services across Tamil Nadu.
+        </div>
+    </div>
+
+</section>
+</div>
+
+<!-- ===== CONTENT ===== -->
+
+<section class="content-section">
+
+    <h2>Reliable / Experienced Support Service for all your NRI Needs</h2>
+
+    <p>
+        Here’s an insight into who we are and what we do—delivering trusted NRI
+        services across every corner of Tamil Nadu.
+    </p>
+
+    <div class="info-grid">
+
+        <div class="info-item">
+            <div class="info-icon">🧾</div>
+            <div class="info-text">
+                <h4>Free Estimation</h4>
+                <p>Get a free, no-obligation quote today. Our team responds quickly.</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">💰</div>
+            <div class="info-text">
+                <h4>Affordable Price</h4>
+                <p>Transparent pricing with no hidden charges after completion.</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">⏰</div>
+            <div class="info-text">
+                <h4>24 / 7 Availability</h4>
+                <p>Our team is available round-the-clock for reliable assistance.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+           
+                                <!-- <section class="elementor-section elementor-top-section elementor-element elementor-element-65f0133 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="65f0133" data-element_type="section"> -->
+                                    <div class="elementor-container elementor-column-gap-default">
+                                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-68dc42d" data-id="68dc42d" data-element_type="column">
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-2e6ffe4 elementor-widget elementor-widget-vt-windfall_section_title" data-id="2e6ffe4" data-element_type="widget" data-widget_type="vt-windfall_section_title.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="section-title-wrap  wndfal-sectTitleElementor ">
+                                                            <h2 class="section-title">Our Premium Services</h2>
+                                                            <!-- <p>We offers a comprehensive range of NRI services with   a reasonable price.</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </section> -->
+<section style="padding:60px 0; background:#f7f8fa;">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Service Card Start -->
+           <div class="col-xl-4 col-lg-6 col-md-6 mt-3">
+                <div class="service-card">
+                    <div class="service-front">
+                      
+                        <div class="service-image">
+                            <img src="https://media.istockphoto.com/id/659465628/vector/world-wide-cargo-transport-concept.jpg?s=612x612&w=0&k=20&c=ifu0TAN-sO4RMjuCnlJCnR81ZJYGihJqeHJsMpLCUWI=" alt="Travel Support"/>
+                        </div>
+                        <br>
+                          <h4 class="service-title ">Courier Service</h4>
+                    </div>
+                    <div class="service-back">
+                        <p>Fast and reliable delivery solutions for your documents and parcels.</p>
+                       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="service-btn">Book now</a>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+             <div class="col-xl-4 col-lg-6 col-md-6 mt-3 ">
+                <div class="service-card">
+                    <div class="service-front">
+                      
+                        <div class="service-image">
+                            <img src="https://media.istockphoto.com/id/465952580/vector/a-digital-illustration-of-business-travel.jpg?s=612x612&w=0&k=20&c=JZdVfmKfPNY_FJVWU48jyrblzYMCgvTaUgssFydfI34=" alt="Travel Support">
+                        </div>
+                        <br>
+                          <h4 class="service-title ">Travel & Tourism Guidance</h4>
+                    </div>
+                    <div class="service-back">
+                        <p>Expert guidance for planning trips, visa assistance, bookings, and travel documentation for hassle-free journeys.</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview"  class="service-btn">Book now </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-md-6 mt-3">
+                <div class="service-card">
+                    <div class="service-front">
+                      
+                        <div class="service-image">
+                            <img src="https://media.istockphoto.com/id/910060330/photo/documents-search.jpg?s=612x612&w=0&k=20&c=KfxuGPyYRuNIDsKuhshRcDpeQyFZliatNg0VxLvKpBw=" alt="Travel Support">
+                        </div>
+                        <br>
+                          <h4 class="service-title ">Certificate & Document Service</h4>
+                    </div>
+                    <div class="service-back">
+                        <p>Assistance in obtaining and managing certificates and official documents.</p>
+                       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="service-btn">Book now</a>
+                    </div>
+                </div>
+            </div>
+              <div class="col-xl-4 col-lg-6 col-md-6 mt-3">
+                <div class="service-card">
+                    <div class="service-front">
+                      
+                        <div class="service-image">
+                            <img src="https://media.istockphoto.com/id/155099359/photo/stethoscope-on-book.jpg?s=612x612&w=0&k=20&c=UfbzJJdYrX7R5VyNVamLHD-PQymoGpOjz2mThaYseQc=" alt="Travel Support">
+                        </div>
+                        <br>
+                          <h4 class="service-title ">Education Service</h4>
+                    </div>
+                    <div class="service-back">
+                        <p>Support for admissions, exams, and educational documentation for NRIs.</p>
+                       
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="service-btn">Book now</a>
+                    </div>
+                </div>
+            </div>
+              <div class="col-xl-4 col-lg-6 col-md-6 mt-3">
+                <div class="service-card">
+                    <div class="service-front">
+                      
+                        <div class="service-image">
+                            <img src="https://media.istockphoto.com/id/1331029732/photo/close-up-of-a-male-doctor-hand-hold-a-silver-pen-and-showing-pad-in-hospital-doctor-giving.jpg?s=612x612&w=0&k=20&c=G9dcoctn0BMFgHx0t1A-d0nOOGPmConTlAQErP3rBbU=" alt="Travel Support">
+                        </div>
+                        <br>
+                          <h4 class="service-title ">Medical Service</h4>
+                    </div>
+                    <div class="service-back">
+                        <p>Guidance and assistance for medical appointments, insurance, and records.</p>
+                       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="service-btn">Book now</a>
+                    </div>
+                </div>
+            </div>
+              <div class="col-xl-4 col-lg-6 col-md-6 mt-3">
+                <div class="service-card">
+                    <div class="service-front">
+                      
+                        <div class="service-image">
+                            <img src="https://images.forbesindia.com/media/images/2021/Feb/img_153731_nrireforms_shutterstock_620224535-bg.jpg" alt="Travel Support">
+                        </div>
+                        <br>
+                          <h4 class="service-title ">Other Service</h4>
+                    </div>
+                    <div class="service-back">
+                        <p>We help NRIs plan visits to Tamil Nadu, for your unique NRI needs—custom services designed  for you safe, and comfortable.</p>
+                       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="service-btn">Book now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more cards as needed -->
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="./service.html"  class="discover-btn">Discover All Services <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<style>
+.service-card {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 350px;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+/* Front content (image + title) */
+.service-front {
+    padding: 20px;
+}
+
+/* Back content (description + button) */
+.service-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.4s ease;
+}
+
+/* Hover effect to show back content */
+.service-card:hover .service-back {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title and image */
+.service-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+.service-image img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Description text */
+.service-back p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Button */
+.service-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: linear-gradient(135deg,#6c63ff,#42a5f5);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.service-btn:hover {
+    background: linear-gradient(135deg,#42a5f5,#6c63ff);
+}
+
+/* Discover button */
+.discover-btn {
+    font-weight: 600;
+    color: #007bff;
+    font-size: 16px;
+    text-decoration: none;
+}
+.discover-btn:hover {
+    text-decoration: underline;
+}
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats Section</title>
+
+    <!-- Bootstrap Grid (only grid used) -->
+    
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fb;
+        }
+
+        /* SECTION */
+        .stats-section {
+            position: relative;
+            background-image: url("https://images.unsplash.com/photo-1521791136064-7986c2920216");
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* DARK OVERLAY */
+        .stats-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .stats-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .stats-text {
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .stats-box {
+            text-align: center;
+        }
+
+        .stats-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .stats-number {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stats-label {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* ✅ TABLET */
+        @media (max-width: 992px) {
+
+            .stats-text {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 22px;
+            }
+
+            .stats-number {
+                font-size: 28px;
+            }
+        }
+
+        /* ✅ MOBILE */
+        @media (max-width: 768px) {
+
+            .stats-section {
+                padding: 45px 15px;
+            }
+
+            .stats-text {
+                font-size: 18px;
+            }
+
+            .stats-icon {
+                font-size: 22px;
+            }
+
+            .stats-number {
+                font-size: 24px;
+            }
+
+            .stats-label {
+                font-size: 13px;
+            }
+        }
+
+    </style>
+
+
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fb;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 10px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            position: relative;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: 0.4s;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-front {
+            padding: 20px;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .service-back {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.97);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: 0.4s;
+        }
+
+        .service-card:hover .service-back {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-back p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .service-btn {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px 22px;
+            background: linear-gradient(135deg,#6c63ff,#42a5f5);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* ✅ MOBILE RESPONSIVE FIX */
+
+        @media (max-width: 768px) {
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .service-image img {
+                height: 190px;
+            }
+
+            .service-title {
+                font-size: 17px;
+            }
+
+            .service-back p {
+                font-size: 13px;
+            }
+
+            .service-btn {
+                font-size: 13px;
+                padding: 9px 18px;
+            }
+        }
+
+    </style>
+
+
+
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<!-- jQuery (REQUIRED) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<style>
+
+/* ===== PAGE RESET ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== TESTIMONIAL SECTION ===== */
+.wndfal-testimonials {
+    position: relative;
+    padding: 80px 20px;
+    background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f") center/cover;
+    color: white;
+}
+
+.wndfal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.testimonials-wrap {
+    text-align: center;
+}
+
+.testimonials-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+/* ===== CARD STYLE ===== */
+.testimonial-item {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.testimonial-item p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.customer-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.customer-name a {
+    text-decoration: none;
+    color: #ffd166;
+}
+
+.author-name {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* ===== NAVIGATION BUTTONS ===== */
+.owl-nav button {
+    background: white !important;
+    color: black !important;
+    width: 36px;
+    height: 36px;
+    border-radius: 50% !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .testimonials-title {
+        font-size: 26px;
+    }
+
+    .testimonial-item {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wndfal-testimonials {
+        padding: 60px 15px;
+    }
+
+    .testimonials-title {
+        font-size: 22px;
+    }
+
+    .testimonial-item p {
+        font-size: 15px;
+    }
+
+    .testimonial-item {
+        padding: 22px;
+        border-radius: 14px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="wndfal-testimonials">
+    <div class="wndfal-overlay"></div>
+
+    <div class="container">
+        <div class="testimonials-wrap">
+            <h2 class="testimonials-title" style="color:rgb(84, 176, 192);">Testimonials</h2>
+
+            <div class="owl-carousel">
+
+                <div class="item">
+                    <div class="testimonial-item">
+                        <p>"Amazing service! Affordable, reliable, and available 24/7. They made managing my family’s property in Tamil Nadu completely stress-free."</p>
+                        <h5 class="customer-name"><a href="#">Priya S.</a></h5>
+                        <h5 class="author-name">Tiruchirappalli</h5>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="testimonial-item">
+                        <p>"Excellent NRI support! Their team handled all my property documents efficiently, and I could track everything from abroad. Highly recommended."</p>
+                        <h5 class="customer-name"><a href="#">Sneha R.</a></h5>
+                        <h5 class="author-name">Coimbatore</h5>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="testimonial-item">
+                        <p>"Professional and trustworthy team. They guided me through legal and financial matters seamlessly. I feel confident recommending them to other NRIs."</p>
+                        <h5 class="customer-name"><a href="#">Mr. Bean</a></h5>
+                        <h5 class="author-name">Madurai</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+jQuery(document).ready(function($) {
+
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 30,
+        dots: true,
+        nav: true,
+
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+
+        smartSpeed: 800,
+        items: 1
+    });
+
+});
+</script>
+<br>
+
+
+
+ <!-- Professional Footer -->
+   <footer class="wndfal-footer reveal-footer" style="background-color:#090a00;color:#fff;font-family:Arial,sans-serif;font-size:14px;padding:50px 20px 20px;">
+
+  <!-- Footer Widgets -->
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;">
+
+    <!-- Widget 1: Logo & About -->
+    <div style="flex:1 1 40%;min-width:250px;margin-bottom:30px;">
+      <div>
+        <div style="margin-bottom:15px;">
+          <img src="./images/NRI_logo.png" alt="NRI Logo" style="width:300px;height:60px;">
+        </div>
+        <p style="line-height:1.6;margin-bottom:15px;">Our goal is to support the NRI community by understanding their unique needs and serving them with care, integrity, and trust.</p>
+        <div>
+          <span style="display:block;margin-bottom:5px;">4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040</span>
+          <span style="display:block;margin-bottom:5px;">Mail: <a href="mailto:macinformationsystems05@gmail.com" style="color:#fff;text-decoration:none;">macinformationsystems05@gmail.com</a></span>
+          <span style="display:block;margin-bottom:5px;">Call: <a href="https://wa.me/917845839740" style="color:#fff;text-decoration:none;">+91 78458 39740</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widget 2: Explore -->
+    <div style="flex:1 1 18%;min-width:150px;margin-bottom:30px;">
+      <h4 style="color:#ff4000;font-size:18px;margin-bottom:10px;">Explore</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">About Us</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Gallery</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Offers</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Pricing</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Testimonial</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Widget 3: Quick Links -->
+    <div style="flex:1 1 18%;min-width:150px;margin-bottom:30px;">
+      <h4 style="color:#ff4000;font-size:18px;margin-bottom:10px;">Quick Links</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Services</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Quotes</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Blog</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Contact Us</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Service Request</a></li>
+        <li style="margin-bottom:8px;"><a href="#" style="color:#fff;text-decoration:none;">Estimations</a></li>
+      </ul>
+    </div>
+
+    <!-- Widget 4: Subscribe & Social -->
+    
+  </div>
+
+  <!-- Copyright -->
+  <div style="background:#090a00cc;padding:15px 20px;text-align:center;font-size:13px;margin-top:20px;">
+    © 2026 NRI. All rights reserved.
+  </div>
+</footer>
+
+
+    <!-- Professional Footer -->
+ 
+</body>
+</html>

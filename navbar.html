@@ -1,0 +1,171 @@
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="./images/NRI_logo.png" alt="NRI Logo">
+    </div>
+
+    <!-- MENU -->
+    <div class="menu" id="menuBox">
+      <a href="./home.html" class="menu-link">Home</a>
+      <a href="./about.html" class="menu-link">About</a>
+      <a href="./service.html" class="menu-link">Services</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="menu-link">Contact</a>
+    </div>
+
+    <!-- HAMBURGER -->
+    <div id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU (STACKED BELOW LOGO) -->
+  <div id="mobileMenu">
+    <a href="./home.html" class="menu-link">Home</a>
+    <a href="./about.html" class="menu-link">About</a>
+    <a href="./service.html" class="menu-link">Services</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZtAsyniCxkeR-Y-MShaUjs4KsI7uogJwiBH-U1RK_XthpCw/viewform?usp=preview" class="menu-link">Contact</a>
+  </div>
+</nav>
+
+<style>
+/* ===== General Navbar ===== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #eae9eedf;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 55px;
+}
+
+/* Desktop menu */
+.menu {
+  display: flex;
+  gap: 15px;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 700;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.menu-link:hover {
+  background: #ff6600;
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(255,102,0,0.3);
+}
+
+/* Hamburger icon */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 1001;
+}
+#hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #111;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+#hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+#hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -15px);
+}
+
+/* Mobile menu stacked */
+#mobileMenu {
+  display: none;
+  flex-direction: column;
+  padding: 10px 20px;
+  background: #f5f5f5;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+#mobileMenu.active {
+  max-height: 500px;
+  display: flex;
+}
+#mobileMenu a {
+  margin-bottom: 10px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width:1024px){
+  .menu {
+    display: none;
+  }
+  #hamburger {
+    display: flex;
+  }
+}
+@media (max-width:768px){
+  .logo img {
+    height: 50px;
+  }
+  .nav-container {
+    padding: 8px 15px;
+  }
+}
+@media (max-width:480px){
+  .logo img {
+    height: 45px;
+  }
+  .menu-link {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+</style>
+
+<script>
+// Optimized mobile menu toggle with passive event listener
+document.addEventListener("DOMContentLoaded", function(){
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if(hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function(){
+      mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }, false);
+
+    // Close menu when link is clicked
+    const links = mobileMenu.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', function(){
+        mobileMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      }, false);
+    });
+  }
+});
+</script>
